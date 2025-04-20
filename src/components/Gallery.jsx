@@ -38,7 +38,19 @@ const TourList = ({tours, setTours, onRemove}) => {
     // Render error state
     if (error) {
         return <h2>Something went wrong...</h2>
-    }
+    };
+    // Task 4: Reset View
+    if (tours.length === 0) { // If there are no tours left -> shows refresh button
+        return (
+          <div className="no-tours">
+            <h2>No tours left. Refresh to reload.</h2>
+            <button onClick={fetchTours}>
+              Refresh
+            </button>
+          </div>
+        );
+      };
+    
     
     // Render the list of TourCards
     return (
